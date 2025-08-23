@@ -1,11 +1,11 @@
 ------------------------------------------------------------
 -- プラグイン情報
 ------------------------------------------------------------
-PluginName = 'BezierSlide'
+PluginName = 'ExBezierSlide'
 PluginMode = 7
 PluginType = 2
 PluginRequire = '6.4.2'
-PluginIcon = 'BezierSlide.png'
+PluginIcon = 'ExBezierSlide.png'
 
 ------------------------------------------------------------
 -- グローバル変数定義
@@ -132,9 +132,23 @@ function OnActive()
     end
 
     SelectedNote = nid
-    PointCount = 1
-    SetParameters()
-    UpdateModules()
+    Editor:GetUserInput('Please enter the number of control points.', tostring(PointCount),
+        function(value)
+            local count = tonumber(value)
+            if count == nil then
+                Editor:ShowMessage("Invalid input. Please enter a number between 1 and 10.")
+                count = 1
+            elseif count < 1 then
+                count = 1
+            elseif count > 10 then
+                count = 10
+            end
+
+            PointCount = count
+            SetParameters()
+            UpdateModules()
+        end
+    )
 end
 
 ------------------------------------------------------------
