@@ -236,6 +236,45 @@ function OnDragMove()
                 elseif ControlPoints[i].Y < P1.Y then
                     ControlPoints[i].Y = P1.Y
                 end
+
+                -- 補助線1
+                local b1 = 100 * (ControlPoints[i].X - P1.X) / 256
+                local h1m = Editor:AddSprite('h1m', 'editor-bezier-line.png')
+                h1m.Alpha = 0
+                h1m.HeightBeat = PointToBeat(ControlPoints[i].Y - P1.Y)
+
+                local auxiliaryLine1 = Editor:AddSprite('m-AuxiliaryLine-1', 'editor-bezier-line.png')
+                auxiliaryLine1.Beat = PointToBeat(P1.Y + ((ControlPoints[i].Y - P1.Y) / 2))
+                auxiliaryLine1.X = math.floor(100 * (P1.X + ((ControlPoints[i].X - P1.X) / 2)) / 256)
+                auxiliaryLine1.Width = 0.5
+                auxiliaryLine1.Rotate = 45
+
+                local hypotenuseHeight1 = math.sqrt((b1 * 10.8) ^ 2 + (h1m.Height ^ 2))
+                auxiliaryLine1.Height = hypotenuseHeight1
+
+                local rad1 = math.atan((b1 * 10.8) / h1m.Height) -- ラジアン
+                local deg1 = rad1 * 180 / math.pi
+                auxiliaryLine1.Rotate = deg1
+
+
+                -- 補助線2
+                local b2 = 100 * (P2.X - ControlPoints[i].X) / 256
+                local h2m = Editor:AddSprite('h2m', 'editor-bezier-line.png')
+                h2m.Alpha = 0
+                h2m.HeightBeat = PointToBeat(P2.Y - ControlPoints[i].Y)
+
+                local auxiliaryLine2 = Editor:AddSprite('m-AuxiliaryLine-2', 'editor-bezier-line.png')
+                auxiliaryLine2.Beat = PointToBeat(ControlPoints[i].Y + ((P2.Y - ControlPoints[i].Y) / 2))
+                auxiliaryLine2.X = math.floor(100 * (ControlPoints[i].X + ((P2.X - ControlPoints[i].X) / 2)) / 256)
+                auxiliaryLine2.Width = 0.5
+                auxiliaryLine2.Rotate = 45
+
+                local hypotenuseHeight2 = math.sqrt((b2 * 10.8) ^ 2 + (h2m.Height ^ 2))
+                auxiliaryLine2.Height = hypotenuseHeight2
+
+                local rad2 = math.atan((b2 * 10.8) / h2m.Height) -- ラジアン
+                local deg2 = rad2 * 180 / math.pi
+                auxiliaryLine2.Rotate = deg2
             end
         end
 
@@ -261,6 +300,7 @@ function OnDragMove()
         end
 
         PreviewModuleCount = segmentsCount
+
         UpdateModules()
 
         Editor:FinishBatch()
@@ -284,6 +324,9 @@ function OnDragEnd()
         Editor:SetNoteSlideBodyX(SelectedNote, seg - 1, math.floor(t.X - P1.X))
         Editor:RemoveModule('m-' .. SelectedNote .. '-' .. seg)
     end
+
+    Editor:RemoveModule('m-AuxiliaryLine-1')
+    Editor:RemoveModule('m-AuxiliaryLine-2')
 
     UpdateModules()
 
