@@ -226,6 +226,7 @@ function OnDragMove()
                 -- 補助線1
                 local b1 = 100 * (ControlPoints[1].X - P1.X) / 256
                 local h1m = Editor:AddSprite('h1m', 'editor-bezier-line.png')
+                h1m.Beat = Editor:MakeBeat(0, 0, 1)
                 h1m.Alpha = 0
                 h1m.HeightBeat = PointToBeat(ControlPoints[1].Y - P1.Y)
 
@@ -246,6 +247,7 @@ function OnDragMove()
                 -- 補助線2
                 local b2 = 100 * (P2.X - ControlPoints[1].X) / 256
                 local h2m = Editor:AddSprite('h2m', 'editor-bezier-line.png')
+                h2m.Beat = Editor:MakeBeat(0, 0, 1)
                 h2m.Alpha = 0
                 h2m.HeightBeat = PointToBeat(P2.Y - ControlPoints[1].Y)
 
@@ -313,6 +315,8 @@ function OnDragEnd()
 
     Editor:RemoveModule('m-AuxiliaryLine-1')
     Editor:RemoveModule('m-AuxiliaryLine-2')
+    Editor:RemoveModule('h1m')
+    Editor:RemoveModule('h2m')
 
     UpdateModules()
 
