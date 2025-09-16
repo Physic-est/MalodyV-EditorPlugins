@@ -1,5 +1,10 @@
 # MalodyV Editor Plug-ins
+
 ## How to import plugins
+> [!NOTE]
+> First, please find the zipped plugin in 
+[Download](Download) directory on this page and download it.
+
 1. Open the left menu, and click [Manage Plugins].
 <img alt="Screenshot_20250815_210301_Malody V" src="https://github.com/user-attachments/assets/f79869ee-f670-4b02-a465-178f0401689e" />
 
