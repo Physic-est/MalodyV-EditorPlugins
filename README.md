@@ -2,8 +2,15 @@
 
 ## How to import plugins
 > [!NOTE]
-> First, please find the zipped plugin in 
-[Download](Download) directory on this page and download it.
+> First, plase download the plugin files from the list below.
+
+| Plugin Name | Download  | Contents | Latest Update |
+| ------------- | ------------- | ------------- | ------------- |
+| BezierSlide | [BezierSlide.zip](https://github.com/Physic-est/MalodyV-EditorPlugins/raw/refs/heads/main/Download/BezierSlide.zip) | BezierSlide, ExBezierSlide, BezierWipe | 2025-09-17 |
+| GizaSlide | [GizaSlide.zip](https://github.com/Physic-est/MalodyV-EditorPlugins/raw/refs/heads/main/Download/GizaSlide.zip) | GizaSlide,1, GizaSlide2, GizaSlide3 | 2025-09-17 |
+| FreeHand | [FreeHand.zip](https://github.com/Physic-est/MalodyV-EditorPlugins/raw/refs/heads/main/Download/FreeHand.zip) | FreeHand | 2025-09-17 |
+| SlideTool | [SlideTool.zip](https://github.com/Physic-est/MalodyV-EditorPlugins/raw/refs/heads/main/Download/SlideTool.zip) | Join, ReShape, Img2Wipe | 2025-09-19 |
+| Marlo | [Marlo.zip](https://github.com/Physic-est/MalodyV-EditorPlugins/raw/refs/heads/main/Download/Marlo.zip) | Marlo | 2025-09-17 |
 
 1. Open the left menu, and click [Manage Plugins].
 <img alt="Screenshot_20250815_210301_Malody V" src="https://github.com/user-attachments/assets/f79869ee-f670-4b02-a465-178f0401689e" />
